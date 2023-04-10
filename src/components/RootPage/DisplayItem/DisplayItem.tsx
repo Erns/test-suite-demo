@@ -34,7 +34,6 @@ const DisplayItem = ({ organization }: Props) => {
 					<p className="truncate text-sm font-medium text-gray-900">
 						{organization.displayName}
 					</p>
-					{/*<p className="truncate text-sm text-gray-500">{`${organization.addressMailing?.city}, ${organization.addressMailing?.state}`}</p>*/}
 				</Link>
 			</div>
 		</div>

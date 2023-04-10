@@ -37,11 +37,9 @@ const RootPage = ({ loading }: Props) => {
 	return (
 		<div>
 			<div className="my-2 flex flex-row justify-between p-4">
-				<h1 className="m-0 tracking-tight text-slate-800">
+				<h1 className="m-0 text-xl font-bold tracking-tight text-slate-800">
 					Select your organization
 				</h1>
-
-				<div></div>
 			</div>
 
 			<div

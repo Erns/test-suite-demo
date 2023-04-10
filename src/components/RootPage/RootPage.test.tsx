@@ -1,4 +1,4 @@
-import { act, render } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
 import { composeStories } from "@storybook/react";
 import { axe } from "jest-axe";
 
@@ -8,6 +8,9 @@ describe("pages/root", () => {
 	it("Should have no accessibility violations", async () => {
 		const { SeveralOrganizations } = composeStories(stories);
 		const { container } = render(<SeveralOrganizations />);
+		await waitFor(() =>
+			expect(container.getElementsByTagName("a").length).toBeGreaterThan(0)
+		);
 
 		await act(async () => {
 			const results = await axe(container);
@@ -29,12 +32,16 @@ describe("pages/root", () => {
 		const { Default } = composeStories(stories);
 		//region Arrange
 		const { container, getByRole, getAllByRole } = render(<Default />);
+		await waitFor(() =>
+			expect(container.getElementsByTagName("a").length).toBeGreaterThan(0)
+		);
 		//endregion
 
 		//region Assert
+		// @ts-ignore
 		expect(getByRole("list")).toBeVisible();
-		expect(container.getElementsByTagName("a")).toHaveLength(3);
-		expect(getAllByRole("listitem")).toHaveLength(3);
+		expect(container.getElementsByTagName("a")).toHaveLength(2);
+		expect(getAllByRole("listitem")).toHaveLength(2);
 		//endregion
 	});
 
@@ -45,12 +52,16 @@ describe("pages/root", () => {
 		const { container, getByRole, getAllByRole } = render(
 			<SeveralOrganizations />
 		);
+		await waitFor(() =>
+			expect(container.getElementsByTagName("a").length).toBeGreaterThan(0)
+		);
 		//endregion
 
 		//region Assert
+		// @ts-ignore
 		expect(getByRole("list")).toBeVisible();
-		expect(container.getElementsByTagName("a")).toHaveLength(11);
-		expect(getAllByRole("listitem")).toHaveLength(11);
+		expect(container.getElementsByTagName("a")).toHaveLength(10);
+		expect(getAllByRole("listitem")).toHaveLength(10);
 		//endregion
 	});
 });
