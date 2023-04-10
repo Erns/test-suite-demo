@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__next {
+	min-height: 100%;
+}
+
+@layer components {
+	.btn {
+		@apply inline-flex cursor-pointer justify-center rounded-md border py-2 px-4 text-sm font-medium shadow-sm focus:outline-none focus:ring-1 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-500;
+	}
+
+	.btn-icon {
+		@apply cursor-pointer rounded-full p-1 hover:bg-opacity-10;
+	}
+
+	.btn-outline {
+		@apply btn;
+		@apply focus:ring-primary-500 border-gray-300 bg-white py-2 px-4 text-gray-700 hover:bg-gray-200;
+	}
+
+	.btn-primary {
+		@apply btn;
+		@apply bg-primary-700 hover:bg-primary-500 focus:ring-primary-500 border-transparent text-white focus:ring-offset-2;
+	}
+
+	.btn-primary-outline {
+		@apply btn;
+		@apply border-primary-700 text-primary-700 hover:bg-primary-200 focus:ring-primary-500 border-2 border-solid focus:ring-offset-2;
+	}
+
+	.btn-secondary {
+		@apply btn;
+		@apply bg-primary-100 text-primary-700 hover:bg-primary-200 focus:ring-primary-500 border-transparent;
+	}
+
+	.btn-secondary-outline {
+		@apply btn;
+		@apply border-primary-100 text-primary-100 hover:bg-primary-200 hover:text-primary-500 focus:ring-primary-500 border-2 border-solid;
+	}
+
+	.btn-menu-item {
+		@apply btn-outline;
+		@apply w-full items-center justify-start rounded-none border-none px-4 py-2 text-left text-sm text-gray-700;
+	}
+
+	.card {
+		@apply overflow-hidden bg-white shadow sm:rounded-lg;
+	}
+
+	.checkbox {
+		@apply text-primary-700 hover:bg-primary-50 focus:ring-primary-500 m-2 h-5 w-5 rounded border-gray-700 hover:cursor-pointer;
+	}
+
+	.form-label {
+		@apply block text-sm font-medium text-gray-700;
+	}
+
+	.form-field {
+		@apply focus:border-primary-500 focus:ring-primary-500 rounded-md border border-gray-300 shadow-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 sm:text-sm;
+	}
+
+	.form-field-error {
+		@apply border border-red-700 text-red-900 focus:border-red-900 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500;
+	}
+
+	.form-error {
+		@apply block h-6 text-sm font-medium text-red-700;
+	}
+
+	.form-description {
+		@apply block h-6 text-sm font-medium text-gray-500;
+	}
+}
